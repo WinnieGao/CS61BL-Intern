@@ -70,5 +70,6 @@ public class IntList {
                 other = other.rest;
             }
         }
+        return true;
     }
 }
