@@ -45,13 +45,16 @@ public class IntList {
 
     /** Returns the string representation of the list. */
     public String toString() {
-        IntList temp = this;
-        String ans = "";
-        while (temp != null) {
-            ans += temp.first;
-            temp = temp.rest;
-        }
-        return ans;
+      IntList temp = this;
+      String ans = "";
+      ans += temp.first;
+      temp = temp.rest;
+      while (temp != null) {
+          ans += " ";
+          ans += temp.first;
+          temp = temp.rest;
+      }
+      return ans;
     }
 
     /** Returns whether this and the given list or object are equal. */
