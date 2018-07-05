@@ -63,6 +63,9 @@ public class UnionFind {
     public void union(int v1, int v2) {
         int root1 = find(v1);
         int root2 = find(v2);
+        if (root1 == root2) {
+            return;
+        }
         if (sizeOf(root1) < sizeOf(root2)) {
             id[root1] = root2;
             id[root2] += id[root1];
