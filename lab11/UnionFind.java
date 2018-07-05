@@ -66,12 +66,12 @@ public class UnionFind {
         if (root1 == root2) {
             return;
         }
-        if (sizeOf(root1) < sizeOf(root2)) {
-            id[root2] += id[root1];
-            id[root1] = root2;
-        } else {
+        if (sizeOf(root1) > sizeOf(root2)) {
             id[root1] += id[root2];
             id[root2] = root1;
+        } else {
+            id[root2] += id[root1];
+            id[root1] = root2;
         }
     }
 
