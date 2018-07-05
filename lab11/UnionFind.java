@@ -17,7 +17,7 @@ public class UnionFind {
         while (result > 0) {
             result = id[result];
         }
-        return result;
+        return -result;
     }
 
     /* Returns the parent of V. If V is the root of a tree, returns the
