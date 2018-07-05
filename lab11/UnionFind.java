@@ -67,7 +67,8 @@ public class UnionFind {
             id[root1] = root2;
             id[root2] += id[root1];
         } else {
-            union(v2, v1);
+            id[root2] = root1;
+            id[root1] += id[root2];
         }
     }
 }
