@@ -67,11 +67,16 @@ public class UnionFind {
             return;
         }
         if (sizeOf(root1) < sizeOf(root2)) {
-            id[root1] = root2;
             id[root2] += id[root1];
+            id[root1] = root2;
         } else {
-            id[root2] = root1;
             id[root1] += id[root2];
+            id[root2] = root1;
         }
+    }
+
+    public static void main(String[] args) {
+        UnionFind uf = new UnionFind(2);
+        uf.union(0 ,1);
     }
 }
