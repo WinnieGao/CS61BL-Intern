@@ -1,7 +1,7 @@
 import java.util.Iterator;
 import java.util.LinkedList;
 
-public class HashMap<K, V> implements Map61BL<K,V> {
+public class HashMap<K, V> implements Map61BL<K, V> {
 
     /* Instance variables here? */
     private LinkedList<K> keys;
@@ -9,8 +9,6 @@ public class HashMap<K, V> implements Map61BL<K,V> {
     int capacity;
     int size;
     double loadFactor;
-
-    /* TODO: Add a constructor here */
 
     public HashMap() {
         capacity = 16;
@@ -59,7 +57,6 @@ public class HashMap<K, V> implements Map61BL<K,V> {
     /* Returns true if this map contains a mapping for the specified key KEY. */
     @Override
     public boolean containsKey(K key) {
-        // TODO: YOUR CODE HERE
         int bucket = Math.floorMod(key.hashCode(), capacity);
         for (Entry e : hm[bucket]) {
             if (e.myKey().equals(key)) {
@@ -73,7 +70,6 @@ public class HashMap<K, V> implements Map61BL<K,V> {
        this map contains no mapping for KEY. */
     @Override
     public V get(K key) {
-        // TODO: YOUR CODE HERE
         int bucket = Math.floorMod(key.hashCode(), capacity);
         for (Entry e : hm[bucket]) {
             if (e.myKey().equals(key)) {
@@ -179,7 +175,6 @@ public class HashMap<K, V> implements Map61BL<K,V> {
     }
 
     private class Entry {
-
         private K key;
         private V value;
 
@@ -196,8 +191,9 @@ public class HashMap<K, V> implements Map61BL<K,V> {
             return value;
         }
 
-        void newValue(V value) {
-            this.value = value;
+        void newValue(V val) {
+            this.value = val;
+            this.value = val;
         }
     }
 }
