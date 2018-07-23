@@ -148,13 +148,14 @@ public class MinHeap<E extends Comparable<E>> {
         for (E e : contents) {
             index += 1;
             if (e.equals(element)) {
-                if (min(index, getParentOf(index)) == index) {
-                    bubbleUp(index);
-                }
-                if (min(index, min(getLeftOf(index), getRightOf(index))) != index) {
-                    bubbleDown(index);
-                }
+                break;
             }
+        }
+        if (min(index, getParentOf(index)) == index) {
+            bubbleUp(index);
+        }
+        if (min(index, min(getLeftOf(index), getRightOf(index))) != index) {
+            bubbleDown(index);
         }
     }
 }
