@@ -1,11 +1,11 @@
 /* A PriorityQueue class that uses a min heap to maintain ordering. */
-public class HeapPQ<T> implements PriorityQueue<T> {
+public class MinHeapPQ<T> implements PriorityQueue<T> {
 
     /* The heap backing our HeapPQ. */
     private MinHeap<PriorityItem> heap;
 
     /* Initializes an empty HeapPQ. */
-    public HeapPQ() {
+    public MinHeapPQ() {
         heap = new MinHeap<PriorityItem>();
     }
 
