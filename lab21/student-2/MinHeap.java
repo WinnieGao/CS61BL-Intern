@@ -127,7 +127,7 @@ public class MinHeap<E extends Comparable<E>> {
 
     /* Inserts element into the MinHeap. */
     public void insert(E element) {
-        contents.set(contents.size(), element);
+        contents.add(element);
         bubbleUp(contents.size() - 1);
     }
 
