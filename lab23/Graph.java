@@ -85,7 +85,9 @@ public class Graph implements Iterable<Integer> {
     public int inDegree(int v) {
         int count = 0;
         for (Edge e : adjLists[v]) {
-            if (e.getTo() == v) count++;
+            if (e.getTo() == v) {
+                count++;
+            }
         }
         return count;
     }
@@ -118,7 +120,7 @@ public class Graph implements Iterable<Integer> {
             int current = fringe.pop();
             visited.add(current);
             for (int i : neighbors(current)) {
-                if (!visited.contains(i)) {
+                if (!visited.contains(i) && !fringe.contains(i)) {
                     fringe.push(i);
                 }
             }
@@ -167,7 +169,9 @@ public class Graph implements Iterable<Integer> {
                 break;
             }
         }
-        if (endIndex == -1) return ans;
+        if (endIndex == -1) {
+            return ans;
+        }
         for (int i = 0; i < endIndex + 1; i++) {
             ans.add(dfsResult.get(i));
         }
