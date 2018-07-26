@@ -38,17 +38,17 @@ public class Graph implements Iterable<Integer> {
             Edge e1 = adjLists[v1].get(i);
             if (e1.getTo() == v2) {
                 adjLists[v1].set(i, add);
-          //      for (int j = 0; j < adjLists[v2].size(); j++) {
-          //          Edge e2 = adjLists[v2].get(j);
-          //          if (e2.getFrom() == v1) {
-          //              adjLists[v2].set(j, add);
-          //              return;
-          //          }
-          //      }
+                for (int j = 0; j < adjLists[v2].size(); j++) {
+                    Edge e2 = adjLists[v2].get(j);
+                    if (e2.getFrom() == v1) {
+                        adjLists[v2].set(j, add);
+                        return;
+                    }
+                }
             }
         }
         adjLists[v1].add(add);
-       // adjLists[v2].add(add);
+        //adjLists[v2].add(add);
     }
 
     /* Adds an undirected Edge (V1, V2) to the graph with weight WEIGHT. If the
