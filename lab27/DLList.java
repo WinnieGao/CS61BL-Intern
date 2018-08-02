@@ -191,6 +191,31 @@ public class DLList<T extends Comparable<T>> {
             return this;
         }
         // Assume first element is the divider.
+        Boolean increasing = true;
+        for (Node n = sentinel.next; n != sentinel.prev; n = n.next) {
+            if (n.item.compareTo(n.next.item) > 0) {
+                increasing = false;
+                break;
+            }
+        }
+        if (increasing) {
+            return this;
+        }
+        Boolean decreasing = true;
+        for (Node n = sentinel.next; n != sentinel.prev; n = n.next) {
+            if (n.item.compareTo(n.next.item) < 0) {
+                decreasing = true;
+                break;
+            }
+        }
+        if (decreasing) {
+            DLList<T> result = new DLList<>();
+            for (Node n = sentinel.prev; n != sentinel; n = n.prev) {
+                result.addLast(n.item);
+            }
+            return result;
+        }
+
         DLList<T> smallElements = new DLList<>();
         DLList<T> equalElements = new DLList<>();
         DLList<T> largeElements = new DLList<>();
@@ -277,9 +302,9 @@ public class DLList<T extends Comparable<T>> {
 
         System.out.print("Own test for Qsort: ");
         values = new DLList();
-        values.addLast(3);
-        values.addLast(1);
-        values.addLast(1);
+        for (int i = 0; i < 100000; i ++) {
+            values.addLast(100000 - i);
+        }
         System.out.println(values);
         sortedValues = values.quicksort();
         System.out.print("After Qsort: ");
