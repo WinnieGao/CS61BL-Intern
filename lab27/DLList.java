@@ -207,9 +207,8 @@ public class DLList<T extends Comparable<T>> {
             }
         }
         DLList<T> sortSmall = smallElements.quicksort();
-        DLList<T> sortEqual = equalElements.quicksort();
         DLList<T> sortLarge = largeElements.quicksort();
-        sortSmall.append(sortEqual);
+        sortSmall.append(equalElements);
         sortSmall.append(sortLarge);
         return sortSmall;
     }
@@ -275,5 +274,15 @@ public class DLList<T extends Comparable<T>> {
         sortedValues = values.quicksort();
         System.out.print("After quicksort: ");
         System.out.println(sortedValues);
+
+        System.out.print("Own test for Qsort: ");
+        values = new DLList();
+        values.addLast(3);
+        values.addLast(1);
+        values.addLast(1);
+        System.out.println(values);
+        sortedValues = values.quicksort();
+        System.out.print("After Qsort: ");
+        System.out.print(sortedValues);
     }
 }
