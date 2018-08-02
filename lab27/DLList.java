@@ -204,7 +204,7 @@ public class DLList<T extends Comparable<T>> {
         Boolean decreasing = true;
         for (Node n = sentinel.next; n != sentinel.prev; n = n.next) {
             if (n.item.compareTo(n.next.item) < 0) {
-                decreasing = true;
+                decreasing = false;
                 break;
             }
         }
@@ -302,9 +302,12 @@ public class DLList<T extends Comparable<T>> {
 
         System.out.print("Own test for Qsort: ");
         values = new DLList();
-        for (int i = 0; i < 100000; i ++) {
-            values.addLast(100000 - i);
-        }
+        values.addLast(4);
+        values.addLast(8);
+        values.addLast(7);
+        values.addLast(9);
+        values.addLast(9);
+
         System.out.println(values);
         sortedValues = values.quicksort();
         System.out.print("After Qsort: ");
